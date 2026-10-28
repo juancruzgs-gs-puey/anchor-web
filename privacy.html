@@ -13,11 +13,11 @@ h1{font-size:28px;margin:0 0 4px}h2{font-size:20px;margin-top:32px}
 p,li{color:var(--mut)}a{color:var(--fg)}
 nav a{margin-right:12px}hr{border:0;border-top:1px solid var(--line);margin:40px 0}
 .upd{font-size:14px}
-</style>
+section[hidden]{display:none}</style>
 </head>
 <body>
 <main>
-<nav><a href="#es">Español</a><a href="#en">English</a></nav>
+<nav><a href="#es" data-l="es">Español</a><a href="#en" data-l="en">English</a></nav>
 
 <section id="es" lang="es">
 <h1>Anchor · Política de privacidad</h1>
@@ -54,7 +54,6 @@ nav a{margin-right:12px}hr{border:0;border-top:1px solid var(--line);margin:40px
 <p>Si esta política cambia, se actualizará esta página y la fecha de arriba. Consultas: <a href="mailto:juancruzgomezs@gmail.com">juancruzgomezs@gmail.com</a>.</p>
 </section>
 
-<hr>
 
 <section id="en" lang="en">
 <h1>Anchor · Privacy policy</h1>
@@ -91,5 +90,13 @@ nav a{margin-right:12px}hr{border:0;border-top:1px solid var(--line);margin:40px
 <p>If this policy changes, this page and the date above will be updated. Questions: <a href="mailto:juancruzgomezs@gmail.com">juancruzgomezs@gmail.com</a>.</p>
 </section>
 </main>
+<script>
+(function(){
+function show(l){['es','en'].forEach(function(x){document.getElementById(x).hidden=x!==l});document.documentElement.lang=l;}
+var h=location.hash.slice(1);
+show(h==='es'||h==='en'?h:((navigator.language||'es').slice(0,2)==='es'?'es':'en'));
+document.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();history.replaceState(null,'','#'+a.dataset.l);show(a.dataset.l);});});
+})();
+</script>
 </body>
 </html>

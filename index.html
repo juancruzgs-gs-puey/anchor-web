@@ -13,10 +13,12 @@ main{max-width:560px;margin:0 auto;padding:64px 16px}h1{font-size:32px;margin:0 
 </head>
 <body><main>
 <h1>Anchor</h1>
-<p>Extensión de Chrome para usar menos las redes sociales: escala de grises, límites diarios, bloqueos y ocultar lo que distrae. Todo queda en tu navegador.<br>
-Chrome extension to use social media less. Everything stays in your browser.</p>
-<ul>
-<li><a href="privacy.html">Política de privacidad / Privacy policy</a></li>
-</ul>
+<p id="d"></p>
+<ul><li><a id="a" href="privacy.html"></a></li></ul>
+<script>
+var es=(navigator.language||'es').slice(0,2)==='es';document.documentElement.lang=es?'es':'en';
+document.getElementById('d').textContent=es?'Extensión de Chrome para usar menos las redes sociales: escala de grises, límites diarios, bloqueos y ocultar lo que distrae. Todo queda en tu navegador.':'Chrome extension to use social media less: grayscale, daily limits, blocks and hiding what distracts. Everything stays in your browser.';
+document.getElementById('a').textContent=es?'Política de privacidad':'Privacy policy';
+</script>
 </main></body>
 </html>
